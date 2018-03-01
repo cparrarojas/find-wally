@@ -2,16 +2,18 @@
 
 A *Where's Wally?* solver inspired by [this post](https://towardsdatascience.com/how-to-find-wally-neural-network-eddbb20b0b90) by [Tadej Magajna](https://github.com/tadejmagajna), implemented using [Keras RetinaNet](https://github.com/fizyr/keras-retinanet) with ResNet50 as a backbone, pre-trained on the COCO dataset.
 
-The script is based on Tadej's [`find_wally_pretty`](https://github.com/tadejmagajna/HereIsWally/blob/master/find_wally_pretty.py), plus the [example notebook](https://github.com/fizyr/keras-retinanet/blob/master/examples/ResNet50RetinaNet.ipynb) from Keras RetinaNet. I introduced changes to allow for multiple detections in a single image; this is due to the fact that the model is very sensitive to Wally's size, so I included all of his larger appearances&mdash;not part of the puzzles themselves&mdash;in the training annotations.
+The script is based on Tadej's [`find_wally_pretty`](https://github.com/tadejmagajna/HereIsWally/blob/master/find_wally_pretty.py), plus the [example notebook](https://github.com/fizyr/keras-retinanet/blob/master/examples/ResNet50RetinaNet.ipynb) from Keras RetinaNet. I introduced changes to allow for multiple detections in a single image (as in Wally+Wenda below); this is due to the fact that the model is very sensitive to Wally's size, so I included all of his larger appearances&mdash;not part of the puzzles themselves&mdash;in the training annotations.
 
 ![Wally + Wenda](https://raw.githubusercontent.com/cparrarojas/find-wally/master/results/wallywenda.png)
 
 ## Usage
 ```
-python find_wally.py PATH_TO_IMAGE_1 PATH_TO_IMAGE_2...
+python find_wally.py PATH_TO_MODEL PATH_TO_IMAGE_1 PATH_TO_IMAGE_2...
 ```
 
 Images are shown one at a time. If no image path is provided, the script will randomly choose one image from training+validation and another one from testing.
+
+The model file can be downloaded from [here](https://github.com/cparrarojas/find-wally/releases/download/0.1/weights.h5).
 
 **Notes:**
 - Detections take ~1min per image on CPU.
