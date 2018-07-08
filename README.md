@@ -15,7 +15,7 @@ python find_wally.py PATH_TO_MODEL PATH_TO_IMAGE_1 PATH_TO_IMAGE_2...
 
 Images are shown one at a time. If no image path is provided, the script will randomly choose one image from the training+validation directory and another one from the testing directory.
 
-The model file can be downloaded from [here](...).
+The model file can be downloaded from [here](https://github.com/cparrarojas/find-wally/releases/download/0.2/weights.h5).
 
 **Notes:**
 - Detections take ~1min per image on CPU.
